@@ -1,10 +1,10 @@
 package main;
 
-public class Wow {
+public class Wow extends Plan{
 
-	void calcularTarifa() {
-		// TODO Auto-generated method stub
-		
+	@Override
+	double calcularTarifa(Llamada llamada) {
+		return tarifa;
 	}
 	
 }

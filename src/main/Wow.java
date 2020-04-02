@@ -1,8 +1,7 @@
 package main;
 
-public class Wow extends Plan{
+public class Wow {
 
-	@Override
 	void calcularTarifa() {
 		// TODO Auto-generated method stub
 		

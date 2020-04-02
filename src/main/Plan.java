@@ -2,7 +2,15 @@ package main;
 
 public abstract class Plan {
 	
-	int tarifa;
+	double tarifa;
+
+	Plan(){
+		
+	}
 	
-	abstract void calcularTarifa();
+	Plan(double tarifa){
+		this.tarifa = tarifa;
+	}
+	
+	abstract double calcularTarifa(Llamada llamada);
 }

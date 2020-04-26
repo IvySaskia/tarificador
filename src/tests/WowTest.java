@@ -22,10 +22,10 @@ class WowTest {
 	void calcularTarifaWow() {
 		amigos.add((long) 77777777);
 		amigos.add((long) 70999948);
-		assertEquals(250, plan.calcularTarifa(llamada));
-		assertEquals(0, plan2.calcularTarifa(llamada2));
-		assertEquals(400, plan2.calcularTarifa(llamada));
-		assertEquals(0, plan.calcularTarifa(llamada2));
+		assertEquals(250, plan.calcularCostoLlamada(llamada));
+		assertEquals(0, plan2.calcularCostoLlamada(llamada2));
+		assertEquals(400, plan2.calcularCostoLlamada(llamada));
+		assertEquals(0, plan.calcularCostoLlamada(llamada2));
 	}
 
 }

@@ -19,5 +19,5 @@ public abstract class Plan {
 	public void setTarifa(double tarifa) {
 		this.tarifa = tarifa;
 	}
-	abstract double calcularTarifa(CDR cdr);
+	abstract double calcularCostoLlamada(CDR cdr);
 }

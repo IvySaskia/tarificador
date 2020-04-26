@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import main.Llamada;
+import main.CDR;
 import main.Wow;
 
 class WowTest {
@@ -15,8 +15,8 @@ class WowTest {
 	List<Long> amigos = new ArrayList<Long>();	
 	Wow plan = new Wow(250.0,amigos);
 	Wow plan2 =new Wow(400.0,amigos);
-	Llamada llamada = new Llamada(70209102, 66666666, 2, 1830);
-	Llamada llamada2 = new Llamada(76464241, 70999948, 10, 2130);
+	CDR llamada = new CDR(70209102, 66666666, 2, 1830);
+	CDR llamada2 = new CDR(76464241, 70999948, 10, 2130);
 	
 	@Test
 	void calcularTarifaWow() {

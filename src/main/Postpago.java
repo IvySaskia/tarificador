@@ -11,7 +11,7 @@ private double tarifa;
 	}
 	
 	@Override
-	public double calcularTarifa(Llamada llamada) {
+	public double calcularTarifa(CDR llamada) {
 		return tarifa;
 	}
 }

@@ -2,7 +2,7 @@ package main;
 
 import java.util.Date;
 
-public class Llamada {
+public class CDR {
 
 	long numeroOrigen;
 	long numeroDestino;
@@ -10,11 +10,11 @@ public class Llamada {
 	int duracion;
 	int hora;
 	
-	public Llamada(){
+	public CDR(){
 		
 	}
 	
-	public Llamada(long origin, long destino, int duracion, int hora) {
+	public CDR(long origin, long destino, int duracion, int hora) {
 		this.numeroOrigen = origin;
 		this.numeroDestino = destino;
 		this.duracion = duracion;

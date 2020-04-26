@@ -14,12 +14,4 @@ private double tarifa;
 	public double calcularTarifa(Llamada llamada) {
 		return tarifa;
 	}
-
-	public double getTarifa() {
-		return tarifa;
-	}
-	
-	public void setTarifa(double tarifa) {
-		this.tarifa = tarifa;
-	}
 }

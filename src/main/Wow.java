@@ -23,14 +23,6 @@ public class Wow extends Plan{
 		}
 		return tarifa;
 	}
-	
-	public double getTarifa() {
-		return tarifa;
-	}
-
-	public void setTarifa(double tarifa) {
-		this.tarifa = tarifa;
-	}
 
 	public List<Long> getAmigos() {
 		return amigos;

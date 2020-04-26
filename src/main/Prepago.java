@@ -40,13 +40,4 @@ public class Prepago extends Plan {
 	public void setTarifaNocturna(double tarifaNocturna) {
 		this.tarifaNocturna = tarifaNocturna;
 	}
-
-	public double getTarifa() {
-		return tarifa;
-	}
-
-	public void setTarifa(double tarifa) {
-		this.tarifa = tarifa;
-	}
-
 }

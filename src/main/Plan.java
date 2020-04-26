@@ -12,5 +12,12 @@ public abstract class Plan {
 		this.tarifa = tarifa;
 	}
 	
+	public double getTarifa() {
+		return tarifa;
+	}
+
+	public void setTarifa(double tarifa) {
+		this.tarifa = tarifa;
+	}
 	abstract double calcularTarifa(Llamada llamada);
 }

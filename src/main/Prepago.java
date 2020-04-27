@@ -13,7 +13,7 @@ public class Prepago extends Plan {
 	}
 	
 	@Override
-	public double calcularTarifa(Llamada llamada) {
+	public double calcularTarifa(CDR llamada) {
 		double costo = 0;
 		
 		if(isNightHour(llamada.getHora()))

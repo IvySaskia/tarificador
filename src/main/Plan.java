@@ -1,8 +1,16 @@
 package main;
 
-public abstract class Plan {
+public abstract class Plan{
 	
 	double tarifa;
+
+	public double getTarifa() {
+		return tarifa;
+	}
+
+	public void setTarifa(double tarifa) {
+		this.tarifa = tarifa;
+	}
 
 	Plan(){
 		
@@ -12,5 +20,5 @@ public abstract class Plan {
 		this.tarifa = tarifa;
 	}
 	
-	abstract double calcularTarifa(Llamada llamada);
+	abstract double calcularTarifa(CDR llamada);
 }

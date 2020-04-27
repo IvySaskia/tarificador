@@ -16,12 +16,12 @@ public class Wow extends Plan{
 		
 	}
 	@Override
-	public double calcularTarifa(Llamada llamada) {
+	public double calcularTarifa(CDR llamada) {
 		if(!amigos.isEmpty()) {
 			if(amigos.contains(llamada.numeroDestino))
 				return 0;
 		}
-		return tarifa;
+		return tarifa * llamada.getDuracion();
 	}
 	
 	public double getTarifa() {

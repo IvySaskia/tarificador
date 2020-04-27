@@ -4,14 +4,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import main.Llamada;
+import main.CDR;
 import main.Postpago;
 
 class PostpagoTest {
 	Postpago plan = new Postpago(250.0);
 	Postpago plan2 =new Postpago(400.0);
-	Llamada llamada = new Llamada(70209102, 66666666, 2, 1830);
-	Llamada llamada2 = new Llamada(76464241, 70999948, 10, 2130);
+	CDR llamada = new CDR(70209102, 66666666, 2, 1830);
+	CDR llamada2 = new CDR(76464241, 70999948, 10, 2130);
 
 	
 	@Test

@@ -20,5 +20,12 @@ public abstract class Plan{
 		this.tarifa = tarifa;
 	}
 	
-	abstract double calcularTarifa(CDR llamada);
+	public double getTarifa() {
+		return tarifa;
+	}
+
+	public void setTarifa(double tarifa) {
+		this.tarifa = tarifa;
+	}
+	abstract double calcularCostoLlamada(CDR cdr);
 }

@@ -35,12 +35,12 @@ class PrepagoTest {
 
 	@Test
 	void calcularTarifaNormal() {
-		assertEquals(2.9, plan.calcularTarifa(llamada));
+		assertEquals(2.9, plan.calcularCostoLlamada(llamada));
 	}
 	
 	@Test
 	void calcularTarifaNocturna() {
-		assertEquals(1.4, plan.calcularTarifa(llamada2));
+		assertEquals(1.4, plan.calcularCostoLlamada(llamada2));
 	}
 	
 	@Test 

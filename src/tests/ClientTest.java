@@ -10,7 +10,7 @@ import main.Prepago;
 
 class ClientTest {
 
-	Plan plan = new Prepago();
+	Plan plan = new Prepaid(5);
 	Client client = new Client();
 
 	@Test

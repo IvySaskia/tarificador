@@ -30,4 +30,8 @@ public class FareByHour extends Fare {
 		public String getType() {
 			return this.getClass().getName();
 		}
+		
+		public MatchFare createMatch() {
+			return new MatchFareByHour();
+		}
 }

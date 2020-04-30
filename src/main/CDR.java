@@ -1,6 +1,7 @@
 package main;
 
 import java.util.Date;
+import java.util.List;
 
 public class CDR {
 
@@ -10,7 +11,7 @@ public class CDR {
 	int duration;
 	int hour;
 	double cost;
-	
+
 	public CDR(){
 		
 	}
@@ -63,13 +64,24 @@ public class CDR {
 		this.hour = hour;
 	}
 	
+	public double getCost() {
+		return cost;
+	}
+
+	public void setCost(double cost) {
+		this.cost = cost;
+	}
+
+	
 	public void calculateCostCall(ClientRegistry clientList) {
 		ClientRegistry clientRegistration = clientList;
 		Client user = clientRegistration.getClientByNumber(originPhoneNumber);
 		System.out.println(user);
-		this.cost = user.getPlan().calcularTarifa(this);
-		System.out.println(cost);
+		double fare = user.getPlan().getFare(this);
+		this.cost = this.duration * fare;
+		System.out.println(this.cost);
 	}
+	
 	public String join() {
 		return this.originPhoneNumber + ", " + this.destinationPhoneNumber + ", " + this.duration + ", " + this.hour + ", " + this.cost;
 	}

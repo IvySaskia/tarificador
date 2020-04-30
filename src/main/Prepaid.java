@@ -5,14 +5,15 @@ import java.util.List;
 public class Prepaid extends Plan {
 	
 	public Prepaid(double fare){
-		addFare(new NormalFare(fare));
+		setNormalFare(new NormalFare(fare));
 	}
 	
 	public Prepaid(Fare fare){
-		addFare(fare);
+		setNormalFare(fare);
 	}
 	
-	public Prepaid(List<Fare> fareList){
+	public Prepaid(Fare fare, List<Fare> fareList){
 		setFareList(fareList);
+		setNormalFare(fare);
 	}
 }

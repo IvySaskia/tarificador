@@ -9,15 +9,16 @@ public class Wow extends Plan {
 	private List<Long> friends = new ArrayList<Long>();
 	
 	public Wow(double fare) {
-		addFare(new NormalFare(fare));
+		setNormalFare(new NormalFare(fare));
 	}
 	
 	public Wow(Fare fare) {
-		addFare(fare);
+		setNormalFare(fare);
 	}
 	
-	public Wow(List<Fare> fareList) {
+	public Wow(Fare fare, List<Fare> fareList) {
 		setFareList(fareList);
+		setNormalFare(fare);
 	}
 
 	public List<Long> getFriends() {
@@ -36,4 +37,25 @@ public class Wow extends Plan {
 		int index = this.friends.indexOf(phoneNumber);
 		this.friends.remove(index);
 	}
+	
+	public boolean isNumberFriend(long phoneNumber) {
+		return this.friends.contains(phoneNumber);
+	}
+
+	@Override
+	public double getFare(CDR cdr) {
+		double findedFare = 0;
+		if(!isNumberFriend(cdr.getNumerodestinationPhoneNumber())) {
+			for( Fare fare: this.fareList) {
+				MatchFare matcher = fare.createMatch();
+				findedFare = matcher.getMatchingFare(cdr, fare);
+				if(findedFare != -1) {
+					return findedFare;
+				}
+			}
+			findedFare = this.normalFare.getFare();
+		}
+		return findedFare;
+	}
+	
 }

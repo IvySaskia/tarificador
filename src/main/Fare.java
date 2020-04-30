@@ -19,5 +19,7 @@ public abstract class Fare {
 	public void setFare(float fare) {
 		this.fare = fare;
 	}
+	
+	public abstract MatchFare createMatch();
 
 }

@@ -14,4 +14,9 @@ public class NormalFare extends Fare {
 	public String getType() {
 		return this.getClass().getName();
 	}
+
+	@Override
+	public MatchFare createMatch() {
+		return new MatchFareNormal();
+	}
 }

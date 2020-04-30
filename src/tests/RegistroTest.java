@@ -14,7 +14,7 @@ import main.*;
 
 public class RegistroTest {
 
-	private RegistroCDR reg = new RegistroCDR();
+	private CDRRegistry reg = new CDRRegistry();
 	private Plan prepago = new Prepago(1.45, 0.7);
 	private Plan postpago = new Postpago(1);
 	private Plan wow = new Wow(0.99, asList((long)7777777, (long)6666666));
@@ -23,7 +23,7 @@ public class RegistroTest {
 	private CDR llamada3 = new CDR(8888888, 7777777, 12, 1534);
 	private CDR llamada4 = new CDR(8888888, 6666666, 34, 1845);
 	private CDR llamada5 = new CDR(8888888, 6666665, 34, 1925);
-	private ClientRegistration reg2 = new ClientRegistration();
+	private ClientRegistry reg2 = new ClientRegistry();
 	private Client cliente = new Client(prepago, 7777777);
 	private Client cliente2 = new Client(postpago, 6666666);
 	private Client cliente3 = new Client(wow, 8888888);
@@ -33,13 +33,13 @@ public class RegistroTest {
 		reg2.addClient(cliente);
 		reg2.addClient(cliente2);
 		reg2.addClient(cliente3);
-		reg.anadirCDR(llamada, reg2);
-		reg.anadirCDR(llamada2, reg2);
-		reg.anadirCDR(llamada3, reg2);
-		reg.anadirCDR(llamada4, reg2);
-		reg.anadirCDR(llamada5, reg2);
-		reg.guardarRegistro();
-		assertThat(reg.getRegistro(), is(asList(llamada, llamada2, llamada3, llamada4, llamada5)));
+		reg.addCDR(llamada, reg2);
+		reg.addCDR(llamada2, reg2);
+		reg.addCDR(llamada3, reg2);
+		reg.addCDR(llamada4, reg2);
+		reg.addCDR(llamada5, reg2);
+		reg.saveRegistry();
+		assertThat(reg.getRegistry(), is(asList(llamada, llamada2, llamada3, llamada4, llamada5)));
 	}
 
 }

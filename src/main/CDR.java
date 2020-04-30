@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class CDR {
 
-	long originPhoneNumberPhoneNumber;
+	long originPhoneNumber;
 	long destinationPhoneNumber;
 	Date date;
 	int duration;
@@ -15,14 +15,14 @@ public class CDR {
 		
 	}
 	public CDR(long originPhoneNumber, long destinationPhoneNumber, int duration, int hour) {
-		this.originPhoneNumberPhoneNumber = originPhoneNumber;
+		this.originPhoneNumber = originPhoneNumber;
 		this.destinationPhoneNumber = destinationPhoneNumber;
 		this.duration = duration;
 		this.hour = hour;
 	}
 	
 	public CDR(long originPhoneNumber, long destinationPhoneNumber, int duration, int hour, Date date) {
-		this.originPhoneNumberPhoneNumber = originPhoneNumber;
+		this.originPhoneNumber = originPhoneNumber;
 		this.destinationPhoneNumber = destinationPhoneNumber;
 		this.duration = duration;
 		this.hour = hour;
@@ -30,11 +30,11 @@ public class CDR {
 	}
 	
 	public long getNumeroOrigen() {
-		return originPhoneNumberPhoneNumber;
+		return originPhoneNumber;
 	}
 
 	public void setNumeroOrigen(long numeroOrigen) {
-		this.originPhoneNumberPhoneNumber = numeroOrigen;
+		this.originPhoneNumber = numeroOrigen;
 	}
 
 	public long getNumerodestinationPhoneNumber() {
@@ -69,14 +69,14 @@ public class CDR {
 		this.hour = hour;
 	}
 	
-	public void calculateCostCall(ClientRegistration clientList) {
-		ClientRegistration clientRegistration = clientList;
-		Client user = clientRegistration.getClientByNumber(originPhoneNumberPhoneNumber);
+	public void calculateCostCall(ClientRegistry clientList) {
+		ClientRegistry clientRegistration = clientList;
+		Client user = clientRegistration.getClientByNumber(originPhoneNumber);
 		System.out.println(user);
 		this.cost = user.getPlan().calcularTarifa(this);
 		System.out.println(cost);
 	}
 	public String join() {
-		return this.originPhoneNumberPhoneNumber + ", " + this.destinationPhoneNumber + ", " + this.duration + ", " + this.hour + ", " + this.cost;
+		return this.originPhoneNumber + ", " + this.destinationPhoneNumber + ", " + this.duration + ", " + this.hour + ", " + this.cost;
 	}
 }

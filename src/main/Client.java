@@ -1,16 +1,16 @@
 package main;
 
-public class Cliente{
+public class Client{
 
 	public Plan plan;
-	public long numero;
+	public long phoneNumber;
 	
-	Cliente(){
+	Client(){
 	}
 	
-	public Cliente(Plan plan, long numero){
+	public Client(Plan plan, long phoneNumber){
 		this.plan = plan;
-		this.numero = numero;
+		this.phoneNumber = phoneNumber;
 	}
 	
 	public Plan getPlan() {
@@ -19,10 +19,10 @@ public class Cliente{
 	public void setPlan(Plan plan) {
 		this.plan = plan;
 	}
-	public long getNumero() {
-		return numero;
+	public long getPhoneNumber() {
+		return phoneNumber;
 	}
 	public void setNumero(long numero) {
-		this.numero = numero;
+		this.phoneNumber = numero;
 	}
 }

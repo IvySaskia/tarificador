@@ -23,16 +23,16 @@ public class RegistroTest {
 	private CDR llamada3 = new CDR(8888888, 7777777, 12, 1534);
 	private CDR llamada4 = new CDR(8888888, 6666666, 34, 1845);
 	private CDR llamada5 = new CDR(8888888, 6666665, 34, 1925);
-	private RegistroClientes reg2 = new RegistroClientes();
-	private Cliente cliente = new Cliente(prepago, 7777777);
-	private Cliente cliente2 = new Cliente(postpago, 6666666);
-	private Cliente cliente3 = new Cliente(wow, 8888888);
+	private ClientRegistration reg2 = new ClientRegistration();
+	private Client cliente = new Client(prepago, 7777777);
+	private Client cliente2 = new Client(postpago, 6666666);
+	private Client cliente3 = new Client(wow, 8888888);
 	
 	@Test
 	public void test() throws IOException {
-		reg2.anadirCliente(cliente);
-		reg2.anadirCliente(cliente2);
-		reg2.anadirCliente(cliente3);
+		reg2.addClient(cliente);
+		reg2.addClient(cliente2);
+		reg2.addClient(cliente3);
 		reg.anadirCDR(llamada, reg2);
 		reg.anadirCDR(llamada2, reg2);
 		reg.anadirCDR(llamada3, reg2);

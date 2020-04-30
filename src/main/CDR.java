@@ -69,9 +69,9 @@ public class CDR {
 		this.hora = hora;
 	}
 	
-	public void calcularCostoLlamada(RegistroClientes listaClientes) {
-		RegistroClientes rg = listaClientes;
-		Cliente user = rg.getClientePorNumero(numeroOrigen);
+	public void calcularCostoLlamada(ClientRegistration listaClientes) {
+		ClientRegistration rg = listaClientes;
+		Client user = rg.getClientePorNumero(numeroOrigen);
 		System.out.println(user);
 		this.costo = user.getPlan().calcularTarifa(this);
 		System.out.println(costo);

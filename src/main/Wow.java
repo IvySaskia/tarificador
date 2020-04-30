@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Wow extends Plan{
+public class Wow extends Plan {
 
 	private List<Long> friends = new ArrayList<Long>();
 	
@@ -12,8 +12,8 @@ public class Wow extends Plan{
 		addFare(new NormalFare(fare));
 	}
 	
-	public Wow(double fare, int initHour, int endHour) {
-		addFare(new FareByHour(fare, initHour, endHour));
+	public Wow(Fare fare) {
+		addFare(fare);
 	}
 	
 	public Wow(List<Fare> fareList) {

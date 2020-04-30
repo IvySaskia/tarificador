@@ -2,7 +2,7 @@ package main;
 
 import java.util.*;
 
-public abstract class Plan{
+public class Plan{
 	
 	List<Fare> fareList = new ArrayList<>();
 

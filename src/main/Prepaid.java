@@ -16,4 +16,18 @@ public class Prepaid extends Plan {
 		setFareList(fareList);
 		setNormalFare(fare);
 	}
+	
+	public double getFare(CDR cdr) {
+		double findedFare = -1;
+		for( Fare fare: this.fareList) {
+			MatchFare matcher = fare.createMatch();
+			findedFare = matcher.getMatchingFare(cdr, fare); 
+			if(findedFare != -1) {
+				return findedFare;
+			}
+		}
+		findedFare = normalFare.getFare();
+		
+		return findedFare;
+	}
 }

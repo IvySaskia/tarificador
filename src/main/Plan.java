@@ -2,7 +2,7 @@ package main;
 
 import java.util.*;
 
-public class Plan{
+public abstract class Plan{
 	
 	List<Fare> fareList = new ArrayList<>();
 	Fare normalFare;
@@ -29,16 +29,6 @@ public class Plan{
 	public void removeTarifa(Fare fare) {
 	}
 	
-	public double getFare(CDR cdr) {
-		double faree = -1;
-		for( Fare fare: this.fareList) {
-			MatchFare matcher = fare.createMatch();
-			faree = matcher.getMatchingFare(cdr, fare); 
-		}
-		if(faree == -1) {
-			faree = normalFare.getFare();
-		}
-		return faree;
-	}
+	public abstract double getFare(CDR cdr);
 		
 }

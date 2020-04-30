@@ -1,22 +1,87 @@
 package tests;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static java.util.Arrays.*;
 
 import java.util.Date;
 
 import org.junit.jupiter.api.Test;
 
-import main.CDR;
+import main.*;
 
 class CDRTest {
 
 	CDR cdr = new CDR();
-//	CDR cdr2 = new CDR(7777777, 6666666, 2, 1830, new Date(30-04-2020));
-
+	CDR cdr2 = new CDR(7777777, 6666666, 2, 1830, new Date(30-04-2020));
+	CDR cdr3 = new CDR(8888888, 7777777, 4, 2030, new Date(30-04-2020));
+	CDR cdr4 = new CDR(8888888, 7777777, 5, 1400, new Date(30-04-2020));
+	CDR cdr5 = new CDR(8888888, 7777776, 10, 1630, new Date(30-04-2020));
+	CDR cdr6 = new CDR(8888888, 6666666, 7, 1830, new Date(30-04-2020));
+	
+	private ClientRegistry reg2 = new ClientRegistry();
+	private Client cliente = new Client(new Prepaid(2), 7777777);
+	private Client cliente2 = new Client(new Postpaid(1), 6666666);
+	Wow plan = new Wow(new NormalFare(3), asList( new FareByHour(5, 1500, 1759), new FareByHour(4, 1800, 2200)));
+	
+	
 	@Test
 	void isSameOriginPhoneNumberTest() {
 		cdr.setOriginPhoneNumbern(7777777);
 		assertEquals(7777777, cdr.getOriginPhoneNumber());
 	}
 
+	@Test
+	void testFirstCall() {
+		plan.addFriend(6666666);
+		Client cliente3 = new Client(plan, 8888888);
+		reg2.addClient(cliente);
+		reg2.addClient(cliente2);
+		reg2.addClient(cliente3);
+		cdr2.calculateCostCall(reg2);
+		assertEquals(4, cdr2.getCost());
+	}
+	
+	@Test
+	void testSecondCall() {
+		plan.addFriend(6666666);
+		Client cliente3 = new Client(plan, 8888888);
+		reg2.addClient(cliente);
+		reg2.addClient(cliente2);
+		reg2.addClient(cliente3);
+		cdr3.calculateCostCall(reg2);
+		assertEquals(16, cdr3.getCost());
+	}
+	
+	@Test
+	void testThirdCall() {
+		plan.addFriend(6666666);
+		Client cliente3 = new Client(plan, 8888888);
+		reg2.addClient(cliente);
+		reg2.addClient(cliente2);
+		reg2.addClient(cliente3);
+		cdr4.calculateCostCall(reg2);
+		assertEquals(15, cdr4.getCost());
+	}
+	
+	@Test
+	void testFourthCall() {
+		plan.addFriend(6666666);
+		Client cliente3 = new Client(plan, 8888888);
+		reg2.addClient(cliente);
+		reg2.addClient(cliente2);
+		reg2.addClient(cliente3);
+		cdr5.calculateCostCall(reg2);
+		assertEquals(50, cdr5.getCost());
+	}
+	
+	@Test
+	void testFifthCall() {
+		plan.addFriend(6666666);
+		Client cliente3 = new Client(plan, 8888888);
+		reg2.addClient(cliente);
+		reg2.addClient(cliente2);
+		reg2.addClient(cliente3);
+		cdr6.calculateCostCall(reg2);
+		assertEquals(0, cdr6.getCost());
+	}
 }

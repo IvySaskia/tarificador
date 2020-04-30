@@ -2,6 +2,7 @@ package main;
 
 public abstract class Plan{
 	
+<<<<<<< HEAD
 	double tarifa;
 
 	public double getTarifa() {
@@ -10,22 +11,29 @@ public abstract class Plan{
 
 	public void setTarifa(double tarifa) {
 		this.tarifa = tarifa;
+=======
+	List<Fare> fareList = new ArrayList<>();
+
+	public List<Fare> getFareList() {
+		return fareList;
 	}
 
-	Plan(){
+	public void setFareList(List<Fare> tarifas) {
+		this.fareList = tarifas;
+	}
+	
+	public void addFare(Fare fare) {
+		fareList.add(fare);
+>>>>>>> 1a99acb... fixing language, spanglish
+	}
+	public void removeTarifa(Fare fare) {
 		
 	}
+<<<<<<< HEAD
 	
-	Plan(double tarifa){
-		this.tarifa = tarifa;
+	public void addFare(Fare fare) {
+		fareList.add(fare);
 	}
-	
-	public double getTarifa() {
-		return tarifa;
-	}
-
-	public void setTarifa(double tarifa) {
-		this.tarifa = tarifa;
-	}
-	abstract double calcularCostoLlamada(CDR cdr);
+	public void removeTarifa(Fare fare) {
+		
 }

@@ -32,11 +32,11 @@ public class CDR {
 		this.originPhoneNumber = originPhoneNumber;
 	}
 
-	public long getNumerodestinationPhoneNumber() {
+	public long getDestinationPhoneNumber() {
 		return destinationPhoneNumber;
 	}
 
-	public void setNumerodestinationPhoneNumber(long destinationPhoneNumber) {
+	public void setDestinationPhoneNumber(long destinationPhoneNumber) {
 		this.destinationPhoneNumber = destinationPhoneNumber;
 	}
 

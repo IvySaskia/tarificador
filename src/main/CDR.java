@@ -14,13 +14,7 @@ public class CDR {
 	public CDR(){
 		
 	}
-	public CDR(long originPhoneNumber, long destinationPhoneNumber, int duration, int hour) {
-		this.originPhoneNumber = originPhoneNumber;
-		this.destinationPhoneNumber = destinationPhoneNumber;
-		this.duration = duration;
-		this.hour = hour;
-	}
-	
+
 	public CDR(long originPhoneNumber, long destinationPhoneNumber, int duration, int hour, Date date) {
 		this.originPhoneNumber = originPhoneNumber;
 		this.destinationPhoneNumber = destinationPhoneNumber;

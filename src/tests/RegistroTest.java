@@ -30,7 +30,7 @@ public class RegistroTest {
 	private Client cliente3 = new Client(wow, 8888888);
 	
 	@Test
-	public void test() throws IOException {
+	public void testAddingCalls() throws IOException {
 		reg2.addClient(cliente);
 		reg2.addClient(cliente2);
 		reg2.addClient(cliente3);
@@ -41,6 +41,13 @@ public class RegistroTest {
 		reg.addCDR(llamada5, reg2);
 		reg.saveRegistry();
 		assertThat(reg.getRegistry(), is(asList(llamada, llamada2, llamada3, llamada4, llamada5)));
+	}
+	
+	@Test
+	void initializeTest() {
+		CDRRegistry CDRregister = new CDRRegistry();
+		CDRregister.setRegistry(asList(llamada, llamada2, llamada3, llamada4));
+		assertThat(CDRregister.getRegistry(), is(asList(llamada, llamada2, llamada3, llamada4)));
 	}
 
 }

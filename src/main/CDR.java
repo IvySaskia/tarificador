@@ -29,20 +29,20 @@ public class CDR {
 		this.date = date;
 	}
 	
-	public long getNumeroOrigen() {
+	public long getOriginPhoneNumber() {
 		return originPhoneNumber;
 	}
 
-	public void setNumeroOrigen(long numeroOrigen) {
-		this.originPhoneNumber = numeroOrigen;
+	public void setOriginPhoneNumbern(long originPhoneNumber) {
+		this.originPhoneNumber = originPhoneNumber;
 	}
 
 	public long getNumerodestinationPhoneNumber() {
 		return destinationPhoneNumber;
 	}
 
-	public void setNumerodestinationPhoneNumber(long numerodestinationPhoneNumber) {
-		this.destinationPhoneNumber = numerodestinationPhoneNumber;
+	public void setNumerodestinationPhoneNumber(long destinationPhoneNumber) {
+		this.destinationPhoneNumber = destinationPhoneNumber;
 	}
 
 	public Date getDate() {

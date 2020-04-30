@@ -71,7 +71,7 @@ public class CDR {
 	
 	public void calcularCostoLlamada(ClientRegistration listaClientes) {
 		ClientRegistration rg = listaClientes;
-		Client user = rg.getClientePorNumero(numeroOrigen);
+		Client user = rg.getClientByNumber(numeroOrigen);
 		System.out.println(user);
 		this.costo = user.getPlan().calcularTarifa(this);
 		System.out.println(costo);

@@ -23,10 +23,10 @@ public class ClientRegistration{
 		this.clients = clients;
 	}
 	
-	public Client getClientePorNumero(Long numero) {
+	public Client getClientByNumber(Long number) {
 		Client client = null;
 		for(Client user: clients) {
-			if(user.getPhoneNumber() == numero) {
+			if(user.getPhoneNumber() == number) {
 				client = user;
 			}
 		}

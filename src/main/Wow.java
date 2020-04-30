@@ -10,18 +10,29 @@ public class Wow extends Plan{
 	
 	public Wow() {}
 	
-	public Wow(double tarifa, List<Long> amigos) {
-		this.tarifa = tarifa;
+	public Wow(Tarifa tarifa, List<Long> amigos) {
+		addTarifa(tarifa);
 		this.amigos = amigos;
-		
+	}
+	
+	public Wow(List<Tarifa> tarifas, List<Long> amigos) {
+		setTarifas(tarifas);
+		this.amigos = amigos;
 	}
 	@Override
 	public double calcularCostoLlamada(CDR cdr) {
-		if(!amigos.isEmpty()) {
-			if(amigos.contains(cdr.numeroDestino))
-				return 0;
+		double costo = -1;
+		
+		if(amigos.contains(cdr.numeroDestino))
+			costo = 0;
+		else {
+			for(Tarifa tarifa: tarifas) {
+				CalculadoraDeTarifa calculadoraTarifa = tarifa.crearCalculadora();
+				costo = calculadoraTarifa.calcularCostoLlamada(cdr, tarifa);
+			}
+			
 		}
-		return tarifa * llamada.getDuracion();
+		return costo;
 	}
 
 	public List<Long> getAmigos() {

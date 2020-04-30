@@ -12,6 +12,6 @@ private double tarifa;
 	
 	@Override
 	public double calcularCostoLlamada(CDR cdr) {
-		return tarifa * llamada.getDuracion();;
+		return tarifa * cdr.getDuracion();
 	}
 }

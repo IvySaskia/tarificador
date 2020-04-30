@@ -73,7 +73,7 @@ public class CDR {
 		RegistroClientes rg = listaClientes;
 		Cliente user = rg.getClientePorNumero(numeroOrigen);
 		System.out.println(user);
-		this.costo = user.getPlan().calcularTarifa(this);
+		this.costo = user.getPlan().calcularCostoLlamada(this);
 		System.out.println(costo);
 	}
 	public String join() {

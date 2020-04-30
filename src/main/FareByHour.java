@@ -15,16 +15,16 @@ public class FareByHour extends Fare {
 			return initHour;
 		}
 
-		public void setInitHour(int horaInicio) {
-			this.initHour = horaInicio;
+		public void setInitHour(int initHour) {
+			this.initHour = initHour;
 		}
 
 		public int getEndHour() {
 			return endHour;
 		}
 
-		public void setEndHour(int horaFin) {
-			this.endHour = horaFin;
+		public void setEndHour(int endHour) {
+			this.endHour = endHour;
 		}
 
 		public String getType() {

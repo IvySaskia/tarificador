@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import main.Client;
 import main.Plan;
 import main.Prepago;
+import main.Prepaid;
 
 class ClientTest {
 

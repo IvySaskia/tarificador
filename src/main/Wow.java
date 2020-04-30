@@ -8,22 +8,6 @@ public class Wow extends Plan{
 
 	private List<Long> friends = new ArrayList<Long>();
 	
-<<<<<<< HEAD
-	public Wow() {}
-	
-	public Wow(double tarifa, List<Long> amigos) {
-		this.tarifa = tarifa;
-		this.amigos = amigos;
-		
-	}
-	@Override
-	public double calcularCostoLlamada(CDR cdr) {
-		if(!amigos.isEmpty()) {
-			if(amigos.contains(cdr.numeroDestino))
-				return 0;
-		}
-		return tarifa * llamada.getDuracion();
-=======
 	public Wow(double fare) {
 		addFare(new NormalFare(fare));
 	}
@@ -32,9 +16,8 @@ public class Wow extends Plan{
 		addFare(new FareByHour(fare, initHour, endHour));
 	}
 	
-	public Wow(List<Fare> fare) {
-		setFareList(fare);
->>>>>>> 1a99acb... fixing language, spanglish
+	public Wow(List<Fare> fareList) {
+		setFareList(fareList);
 	}
 
 	public List<Long> getFriends() {
@@ -45,12 +28,8 @@ public class Wow extends Plan{
 		this.friends = friends;
 	}
 	
-	public void addFriend(long number) {
-		this.friends.add(number);
-	}
-	
-	public void addFriend(long number) {
-		this.friends.add(number);
+	public void addFriend(long phoneNumber) {
+		this.friends.add(phoneNumber);
 	}
 	
 	public void removeFriend(long phoneNumber) {

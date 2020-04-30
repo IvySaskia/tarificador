@@ -7,6 +7,7 @@ import static org.hamcrest.CoreMatchers.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -20,26 +21,26 @@ class WowTest {
 	Fare fareByHour = new FareByHour(0.70, 2100, 2359);
 	Wow plan = new Wow(0.99);
 	Wow plan2 = new Wow(normalFare);
-	Wow plan3 = new Wow(asList(normalFare, fareByHour));
-	CDR llamada = new CDR(70209102, 66666666, 2, 1830);
-	CDR llamada2 = new CDR(76464241, 70999948, 10, 2130);
+	Wow plan3 = new Wow(normalFare ,asList(fareByHour));
+	CDR llamada = new CDR(70209102, 66666666, 2, 1830, new Date(25-04-2020));
+	CDR llamada2 = new CDR(76464241, 70999948, 10, 2130, new Date(25-04-2020));
 	
 	@Test
 	void testFirstConstructor() {
 		List<Fare> fareList = plan.getFareList();
-		assertEquals(0.99, fareList.get(0).getFare(), 0.99);
+		assertEquals(0.99, plan.getNormalFare().getFare(), 0.99);
 	}
 	
 	@Test
 	void testSecondConstructor() {
 		List<Fare> fareList = plan2.getFareList();
-		assertThat(fareList, is(asList(normalFare)));
+		assertEquals(normalFare, plan2.getNormalFare());
 	}
 	
 	@Test
 	void testThirdConstructor() {
 		List<Fare> fareList = plan3.getFareList();
-		assertThat(fareList, is(asList(normalFare, fareByHour)));
+		assertThat(fareList, is(asList(fareByHour)));
 	}
 	
 	@Test
@@ -61,6 +62,7 @@ class WowTest {
 		plan.setFriends(asList((long)70999948, (long)70209102));
 		assertThat(plan.getFriends(), is(asList((long)70999948, (long)70209102)));
 	}
+	
 //	@Test
 //	void calcularTarifaWow() {
 //		amigos.add((long) 77777777);

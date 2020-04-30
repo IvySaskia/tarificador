@@ -5,15 +5,16 @@ import java.util.List;
 public class Postpaid extends Plan{
 	
 	public Postpaid(double fare) {
-		addFare(new NormalFare(fare));
+		setNormalFare(new NormalFare(fare));
 	}
 	
-	public Postpaid(NormalFare fare) {
-		addFare(fare);
+	public Postpaid(Fare fare) {
+		setNormalFare(fare);
 	}
 	
-	public Postpaid(List<Fare> fareList) {
+	public Postpaid(Fare fare, List<Fare> fareList) {
 		setFareList(fareList);
+		setNormalFare(fare);
 	}
 	
 	public double getFare(CDR cdr) {

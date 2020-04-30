@@ -18,10 +18,11 @@ class WowTest {
 
 	Fare normalFare = new NormalFare(0.85);
 	Fare normalFare2 = new NormalFare(0.99);
-	Fare fareByHour = new FareByHour(0.70, 2100, 2359);
+	Fare fareByHour = new FareByHour(0.70, 2100, 2359, "hora_feliz");
+	Fare fareByHour2 = new FareByHour(0.70, 2100, 2359, "noches");
 	Wow plan = new Wow(0.99);
 	Wow plan2 = new Wow(normalFare);
-	Wow plan3 = new Wow(normalFare ,asList(fareByHour));
+	Wow plan3 = new Wow(normalFare);
 	CDR llamada = new CDR(70209102, 66666666, 2, 1830, new Date(25-04-2020));
 	CDR llamada2 = new CDR(76464241, 70999948, 10, 2130, new Date(25-04-2020));
 	
@@ -39,8 +40,10 @@ class WowTest {
 	
 	@Test
 	void testThirdConstructor() {
+		plan3.addFare(fareByHour);
+		plan3.addFare(fareByHour2);
 		List<Fare> fareList = plan3.getFareList();
-		assertThat(fareList, is(asList(fareByHour)));
+		assertThat(fareList, is(asList(fareByHour, fareByHour2)));
 	}
 	
 	@Test
@@ -63,14 +66,13 @@ class WowTest {
 		assertThat(plan.getFriends(), is(asList((long)70999948, (long)70209102)));
 	}
 	
-//	@Test
-//	void calcularTarifaWow() {
-//		amigos.add((long) 77777777);
-//		amigos.add((long) 70999948);
-//		assertEquals(1.98, plan.calcularTarifa(llamada));
-//		assertEquals(0, plan2.calcularTarifa(llamada2));
-//		assertEquals(1.70, plan2.calcularTarifa(llamada));
-//		assertEquals(0, plan.calcularTarifa(llamada2));
-//	}
+	@Test 
+	void testRemoveFare() {
+		plan3.addFare(fareByHour);
+		plan3.addFare(fareByHour2);
+		plan3.removeFare("hora_feliz");
+		assertThat(plan3.getFareList(), is(asList(fareByHour2)));
+	}
+	
 
 }

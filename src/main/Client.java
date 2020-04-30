@@ -5,7 +5,7 @@ public class Client{
 	public Plan plan;
 	public long phoneNumber;
 	
-	Client(){
+	public Client(){
 	}
 	
 	public Client(Plan plan, long phoneNumber){
@@ -22,7 +22,10 @@ public class Client{
 	public long getPhoneNumber() {
 		return phoneNumber;
 	}
-	public void setNumero(long numero) {
-		this.phoneNumber = numero;
+	public void setPhoneNumber(long phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+	public boolean isSamePhoneNumber(long phoneNumber){
+		return this.phoneNumber == phoneNumber;
 	}
 }

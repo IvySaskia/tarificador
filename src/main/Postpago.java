@@ -2,16 +2,16 @@ package main;
 
 public class Postpago extends Plan{
 
-private double tarifa;
+private double rate;
 	
 	public Postpago() {}
 	
-	public Postpago(double tarifa) {
-		this.tarifa = tarifa;
+	public Postpago(double rate) {
+		this.rate = rate;
 	}
 	
 	@Override
 	public double calcularCostoLlamada(CDR cdr) {
-		return tarifa * llamada.getDuracion();;
+		return rate * cdr.getDuration();
 	}
 }

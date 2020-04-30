@@ -16,9 +16,9 @@ class PostpagoTest {
 	
 	@Test
 	void calcularTarifaPostPago() {
-		assertEquals(250, plan.calcularCostoLlamada(llamada));
-		assertEquals(400, plan2.calcularCostoLlamada(llamada2));
-		assertEquals(400, plan2.calcularCostoLlamada(llamada));
-		assertEquals(250, plan.calcularCostoLlamada(llamada2));
+		assertEquals(250, plan.calculateCostCall(llamada));
+		assertEquals(400, plan2.calculateCostCall(llamada2));
+		assertEquals(400, plan2.calculateCostCall(llamada));
+		assertEquals(250, plan.calculateCostCall(llamada2));
 	}
 }

@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClientRegistration{
+public class ClientRegistry{
 
 	public List<Client> clients = new ArrayList<>();
 

@@ -8,25 +8,25 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class RegistroCDR {
+public class CDRRegistry {
 
-	List<CDR> registro = new ArrayList<>();
+	List<CDR> registry = new ArrayList<>();
 	
-	public void anadirCDR(CDR cdr, ClientRegistration listaClientes) {
-		cdr.calcularCostoLlamada(listaClientes);
-		this.registro.add(cdr);
+	public void addCDR(CDR cdr, ClientRegistry clientsList) {
+		cdr.calculateCostCall(clientsList);
+		this.registry.add(cdr);
 		
 	}
 	
-	public List<CDR> getRegistro() {
-		return registro;
+	public List<CDR> getRegistry() {
+		return registry;
 	}
 
-	public void setRegistro(List<CDR> registro) {
-		this.registro = registro;
+	public void setRegistry(List<CDR> registry) {
+		this.registry = registry;
 	}
 	
-	public void guardarRegistro() throws IOException {
+	public void saveRegistry() throws IOException {
 		
 	    File file = new File("/Users/miguelalejandrojordan/Documents/register.csv");
         FileWriter fw = new FileWriter(file);
@@ -35,7 +35,7 @@ public class RegistroCDR {
         bw.write("Origen, Destino, Duracion, Hora, Costo");
         bw.newLine();
         
-        for(CDR cdr: registro) {
+        for(CDR cdr: registry) {
         	bw.write(cdr.join());
         	bw.newLine();
         }

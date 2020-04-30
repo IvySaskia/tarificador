@@ -3,6 +3,7 @@ package main;
 public abstract class Fare {
 	
 	protected double fare;
+	protected String identifier;
 	
 	public Fare(){
 	}
@@ -18,6 +19,15 @@ public abstract class Fare {
 
 	public void setFare(float fare) {
 		this.fare = fare;
+	}
+	
+	
+	public String getIdentifier() {
+		return this.identifier;
+	}
+	
+	public String setIdentifier(String identifier) {
+		return this.identifier=identifier;
 	}
 	
 	public abstract MatchFare createMatch();

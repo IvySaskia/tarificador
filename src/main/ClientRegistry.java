@@ -36,4 +36,6 @@ public class ClientRegistry{
 	public void addClient(Client client) {
 		this.clients.add(client);
 	}
+	
+	public ClientRegistry() {}
 }

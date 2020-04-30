@@ -12,15 +12,18 @@ import main.*;
 class CDRTest {
 
 	CDR cdr = new CDR();
-	CDR cdr2 = new CDR(7777777, 6666666, 2, 1830, new Date(30-04-2020));
-	CDR cdr3 = new CDR(8888888, 7777777, 4, 2030, new Date(30-04-2020));
-	CDR cdr4 = new CDR(8888888, 7777777, 5, 1400, new Date(30-04-2020));
-	CDR cdr5 = new CDR(8888888, 7777776, 10, 1630, new Date(30-04-2020));
-	CDR cdr6 = new CDR(8888888, 6666666, 7, 1830, new Date(30-04-2020));
+	CDR cdr2 = new CDR(7777777, 6666666, 2, 1830, new Date(19-04-2020));
+	CDR cdr3 = new CDR(8888888, 7777777, 4, 2030, new Date(20-04-2020));
+	CDR cdr4 = new CDR(8888888, 7777777, 5, 1400, new Date(20-04-2020));
+	CDR cdr5 = new CDR(8888888, 7777776, 10, 1630, new Date(20-04-2020));
+	CDR cdr6 = new CDR(8888888, 6666666, 7, 1830, new Date(21-04-2020));
 	
 	private ClientRegistry reg2 = new ClientRegistry();
+	
 	private Client cliente = new Client(new Prepaid(2), 7777777);
 	private Client cliente2 = new Client(new Postpaid(1), 6666666);
+	private Client cliente3 = new Client(new Postpaid(1), 8888888);
+	
 	Wow plan = new Wow(new NormalFare(3), asList( new FareByHour(5, 1500, 1759), new FareByHour(4, 1800, 2200)));
 	
 	

@@ -22,7 +22,7 @@ class WowTest {
 	Fare fareByHour2 = new FareByHour(0.70, 2100, 2359, "noches");
 	Wow plan = new Wow(0.99);
 	Wow plan2 = new Wow(normalFare);
-	Wow plan3 = new Wow(normalFare);
+	Plan plan3 = new Wow(normalFare);
 	CDR llamada = new CDR(70209102, 66666666, 2, 1830, new Date(25-04-2020));
 	CDR llamada2 = new CDR(76464241, 70999948, 10, 2130, new Date(25-04-2020));
 	

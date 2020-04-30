@@ -11,6 +11,14 @@ public class FareByHour extends Fare {
 			this.endHour = endHour;
 		}
 		
+		
+		public FareByHour(double fare, int initHour, int endHour, String identifier) {
+			this.fare = fare;
+			this.initHour = initHour;
+			this.endHour = endHour;
+			this.identifier = identifier;
+		}
+		
 		public int getInitHour() {
 			return initHour;
 		}

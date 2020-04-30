@@ -20,14 +20,13 @@ public abstract class Fare {
 	public void setFare(float fare) {
 		this.fare = fare;
 	}
-	
-	
+
 	public String getIdentifier() {
 		return this.identifier;
 	}
 	
 	public String setIdentifier(String identifier) {
-		return this.identifier=identifier;
+		return this.identifier = identifier;
 	}
 	
 	public abstract MatchFare createMatch();

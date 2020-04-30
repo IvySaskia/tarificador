@@ -26,7 +26,14 @@ public abstract class Plan{
 	public void addFare(Fare fare) {
 		fareList.add(fare);
 	}
-	public void removeTarifa(Fare fare) {
+	
+	public void removeFare(String identifier) {
+		for(Fare fare: this.fareList) {
+			if(fare.getIdentifier().compareTo(identifier) == 0) {
+				System.out.println(fare.getIdentifier());
+				this.fareList.remove(fare);
+			}
+		}
 	}
 	
 	public abstract double getFare(CDR cdr);

@@ -13,7 +13,7 @@ public class RegistroCDR {
 	List<CDR> registro = new ArrayList<>();
 	
 	public void anadirCDR(CDR cdr, ClientRegistration listaClientes) {
-		cdr.calcularCostoLlamada(listaClientes);
+		cdr.calculateCostCall(listaClientes);
 		this.registro.add(cdr);
 		
 	}

@@ -4,79 +4,79 @@ import java.util.Date;
 
 public class CDR {
 
-	long numeroOrigen;
-	long numeroDestino;
-	Date fecha;
-	int duracion;
-	int hora;
-	double costo;
+	long originPhoneNumberPhoneNumber;
+	long destinationPhoneNumber;
+	Date date;
+	int duration;
+	int hour;
+	double cost;
 	
 	public CDR(){
 		
 	}
-	public CDR(long origin, long destino, int duracion, int hora) {
-		this.numeroOrigen = origin;
-		this.numeroDestino = destino;
-		this.duracion = duracion;
-		this.hora = hora;
+	public CDR(long originPhoneNumber, long destinationPhoneNumber, int duration, int hour) {
+		this.originPhoneNumberPhoneNumber = originPhoneNumber;
+		this.destinationPhoneNumber = destinationPhoneNumber;
+		this.duration = duration;
+		this.hour = hour;
 	}
 	
-	public CDR(long origin, long destino, int duracion, int hora, Date fecha) {
-		this.numeroOrigen = origin;
-		this.numeroDestino = destino;
-		this.duracion = duracion;
-		this.hora = hora;
-		this.fecha = fecha;
+	public CDR(long originPhoneNumber, long destinationPhoneNumber, int duration, int hour, Date date) {
+		this.originPhoneNumberPhoneNumber = originPhoneNumber;
+		this.destinationPhoneNumber = destinationPhoneNumber;
+		this.duration = duration;
+		this.hour = hour;
+		this.date = date;
 	}
 	
 	public long getNumeroOrigen() {
-		return numeroOrigen;
+		return originPhoneNumberPhoneNumber;
 	}
 
 	public void setNumeroOrigen(long numeroOrigen) {
-		this.numeroOrigen = numeroOrigen;
+		this.originPhoneNumberPhoneNumber = numeroOrigen;
 	}
 
-	public long getNumeroDestino() {
-		return numeroDestino;
+	public long getNumerodestinationPhoneNumber() {
+		return destinationPhoneNumber;
 	}
 
-	public void setNumeroDestino(long numeroDestino) {
-		this.numeroDestino = numeroDestino;
+	public void setNumerodestinationPhoneNumber(long numerodestinationPhoneNumber) {
+		this.destinationPhoneNumber = numerodestinationPhoneNumber;
 	}
 
-	public Date getFecha() {
-		return fecha;
+	public Date getDate() {
+		return date;
 	}
 
-	public void setFecha(Date fecha) {
-		this.fecha = fecha;
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
-	public int getDuracion() {
-		return duracion;
+	public int getDuration() {
+		return duration;
 	}
 
-	public void setDuracion(int duracion) {
-		this.duracion = duracion;
+	public void setDuration(int duration) {
+		this.duration = duration;
 	}
 
-	public int getHora() {
-		return hora;
+	public int getHour() {
+		return hour;
 	}
 
-	public void setHora(int hora) {
-		this.hora = hora;
+	public void setHour(int hour) {
+		this.hour = hour;
 	}
 	
-	public void calcularCostoLlamada(ClientRegistration listaClientes) {
-		ClientRegistration rg = listaClientes;
-		Client user = rg.getClientByNumber(numeroOrigen);
+	public void calculateCostCall(ClientRegistration clientList) {
+		ClientRegistration clientRegistration = clientList;
+		Client user = clientRegistration.getClientByNumber(originPhoneNumberPhoneNumber);
 		System.out.println(user);
-		this.costo = user.getPlan().calcularTarifa(this);
-		System.out.println(costo);
+		this.cost = user.getPlan().calcularTarifa(this);
+		System.out.println(cost);
 	}
 	public String join() {
-		return this.numeroOrigen + ", " + this.numeroDestino + ", " + this.duracion + ", " + this.hora + ", " + this.costo;
+		return this.originPhoneNumberPhoneNumber + ", " + this.destinationPhoneNumber + ", " + this.duration + ", " + this.hour + ", " + this.cost;
 	}
 }

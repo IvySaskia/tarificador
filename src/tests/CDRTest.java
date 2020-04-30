@@ -84,4 +84,21 @@ class CDRTest {
 		cdr6.calculateCostCall(reg2);
 		assertEquals(0, cdr6.getCost());
 	}
+	
+
+	@Test
+	void testSixCall() {
+		cdr.setDuration(7);
+		cdr.setDate(new Date(30-04-2020));
+		cdr.setOriginPhoneNumbern(6666666);
+		cdr.setDestinationPhoneNumber(8888888);
+		cdr.setHour(1900);
+		cdr.setCost(0);
+		cdr.join();
+		assertEquals(7, cdr.getDuration());
+		assertEquals(new Date(30-04-2020), cdr.getDate());
+		assertEquals(6666666, cdr.getOriginPhoneNumber());
+		assertEquals(8888888, cdr.getDestinationPhoneNumber());
+		assertEquals(0, cdr.getCost());
+	}
 }

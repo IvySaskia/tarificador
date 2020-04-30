@@ -45,7 +45,7 @@ public class Wow extends Plan {
 	@Override
 	public double getFare(CDR cdr) {
 		double findedFare = 0;
-		if(!isNumberFriend(cdr.getNumerodestinationPhoneNumber())) {
+		if(!isNumberFriend(cdr.getDestinationPhoneNumber())) {
 			for( Fare fare: this.fareList) {
 				MatchFare matcher = fare.createMatch();
 				findedFare = matcher.getMatchingFare(cdr, fare);

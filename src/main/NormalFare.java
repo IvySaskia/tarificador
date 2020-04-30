@@ -11,10 +11,6 @@ public class NormalFare extends Fare {
 		this.identifier = identifier;
 	}
 
-	public boolean esHoraValida(int hour) {
-		return false;
-	}
-
 	@Override
 	public String getType() {
 		return this.getClass().getName();

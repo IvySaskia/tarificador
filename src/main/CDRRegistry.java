@@ -28,14 +28,15 @@ public class CDRRegistry {
 	
 	public void saveRegistry() throws IOException {
 		
-	    File file = new File("/Users/miguelalejandrojordan/Documents/register.csv");
+	    File file = new File("CDRregister.csv");
         FileWriter fw = new FileWriter(file);
         BufferedWriter bw = new BufferedWriter(fw);
 
-        bw.write("Origen, Destino, Duracion, Hora, Costo");
+        bw.write("Origen, Destino, Duracion, Hora, Fecha, Costo");
         bw.newLine();
         
-        for(CDR cdr: registry) {
+        for(CDR cdr: this.registry) {
+        	System.out.println(cdr.join());
         	bw.write(cdr.join());
         	bw.newLine();
         }

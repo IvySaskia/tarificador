@@ -76,13 +76,11 @@ public class CDR {
 	public void calculateCostCall(ClientRegistry clientList) {
 		ClientRegistry clientRegistration = clientList;
 		Client user = clientRegistration.getClientByNumber(originPhoneNumber);
-		System.out.println(user);
 		double fare = user.getPlan().getFare(this);
 		this.cost = this.duration * fare;
-		System.out.println(this.cost);
 	}
 	
 	public String join() {
-		return this.originPhoneNumber + ", " + this.destinationPhoneNumber + ", " + this.duration + ", " + this.hour + ", " + this.cost;
+		return this.originPhoneNumber + ", " + this.destinationPhoneNumber + ", " + this.duration + ", " + this.hour + ", " + this.date.toString() + ", " + this.cost;
 	}
 }

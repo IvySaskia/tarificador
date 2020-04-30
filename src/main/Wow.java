@@ -4,32 +4,58 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Wow extends Plan{
+public class Wow extends Plan {
 
-	private List<Long> amigos = new ArrayList<Long>();
+	private List<Long> friends = new ArrayList<Long>();
 	
-	public Wow() {}
-	
-	public Wow(double tarifa, List<Long> amigos) {
-		this.tarifa = tarifa;
-		this.amigos = amigos;
-		
+	public Wow(double fare) {
+		setNormalFare(new NormalFare(fare));
 	}
+	
+	public Wow(Fare fare) {
+		setNormalFare(fare);
+	}
+	
+	public Wow(Fare fare, List<Fare> fareList) {
+		setFareList(fareList);
+		setNormalFare(fare);
+	}
+
+	public List<Long> getFriends() {
+		return friends;
+	}
+
+	public void setFriends(List<Long> friends) {
+		this.friends = friends;
+	}
+	
+	public void addFriend(long phoneNumber) {
+		this.friends.add(phoneNumber);
+	}
+	
+	public void removeFriend(long phoneNumber) {
+		int index = this.friends.indexOf(phoneNumber);
+		this.friends.remove(index);
+	}
+	
+	public boolean isNumberFriend(long phoneNumber) {
+		return this.friends.contains(phoneNumber);
+	}
+
 	@Override
-	public double calcularCostoLlamada(CDR cdr) {
-		if(!amigos.isEmpty()) {
-			if(amigos.contains(cdr.numeroDestino))
-				return 0;
+	public double getFare(CDR cdr) {
+		double findedFare = 0;
+		if(!isNumberFriend(cdr.getDestinationPhoneNumber())) {
+			for( Fare fare: this.fareList) {
+				MatchFare matcher = fare.createMatch();
+				findedFare = matcher.getMatchingFare(cdr, fare);
+				if(findedFare != -1) {
+					return findedFare;
+				}
+			}
+			findedFare = this.normalFare.getFare();
 		}
-		return tarifa * llamada.getDuracion();
-	}
-
-	public List<Long> getAmigos() {
-		return amigos;
-	}
-
-	public void setAmigos(List<Long> amigos) {
-		this.amigos = amigos;
+		return findedFare;
 	}
 	
 }

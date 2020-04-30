@@ -1,31 +1,41 @@
 package main;
 
+import java.util.*;
+
 public abstract class Plan{
 	
-	double tarifa;
-
-	public double getTarifa() {
-		return tarifa;
+	List<Fare> fareList = new ArrayList<>();
+	Fare normalFare;
+	
+	public Fare getNormalFare() {
+		return normalFare;
 	}
 
-	public void setTarifa(double tarifa) {
-		this.tarifa = tarifa;
+	public void setNormalFare(Fare normalFare) {
+		this.normalFare = normalFare;
 	}
 
-	Plan(){
+	public List<Fare> getFareList() {
+		return fareList;
+	}
+
+	public void setFareList(List<Fare> tarifas) {
+		this.fareList = tarifas;
+	}
+	
+	public void addFare(Fare fare) {
+		fareList.add(fare);
+	}
+	
+	public void removeFare(String identifier) {
+		for(Fare fare: this.fareList) {
+			if(fare.getIdentifier().compareTo(identifier) == 0) {
+				System.out.println(fare.getIdentifier());
+				this.fareList.remove(fare);
+			}
+		}
+	}
+	
+	public abstract double getFare(CDR cdr);
 		
-	}
-	
-	Plan(double tarifa){
-		this.tarifa = tarifa;
-	}
-	
-	public double getTarifa() {
-		return tarifa;
-	}
-
-	public void setTarifa(double tarifa) {
-		this.tarifa = tarifa;
-	}
-	abstract double calcularCostoLlamada(CDR cdr);
 }

@@ -6,11 +6,11 @@ import org.junit.jupiter.api.Test;
 
 import main.Client;
 import main.Plan;
-import main.Prepago;
+import main.Prepaid;
 
 class ClientTest {
 
-	Plan plan = new Prepago();
+	Plan plan = new Prepaid(5);
 	Client client = new Client();
 
 	@Test

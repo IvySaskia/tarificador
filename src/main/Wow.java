@@ -44,14 +44,21 @@ public class Wow extends Plan {
 
 	@Override
 	public double getFare(CDR cdr) {
+		List<Double> findedFares = new ArrayList<>();
 		double findedFare = 0;
 		if(!isNumberFriend(cdr.getDestinationPhoneNumber())) {
+			
 			for( Fare fare: this.fareList) {
 				MatchFare matcher = fare.createMatch();
-				findedFare = matcher.getMatchingFare(cdr, fare);
+				findedFare = matcher.getMatchingFare(cdr, fare); 
 				if(findedFare != -1) {
-					return findedFare;
+					findedFares.add(findedFare);
 				}
+			}
+			if(!findedFares.isEmpty()) {
+				findedFare = getLowerFare(findedFares);
+				if(findedFare != -1)
+					return findedFare;
 			}
 			findedFare = this.normalFare.getFare();
 		}

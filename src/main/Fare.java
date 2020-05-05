@@ -1,5 +1,7 @@
 package main;
 
+import java.util.List;
+
 public abstract class Fare {
 	
 	protected double fare;
@@ -30,5 +32,4 @@ public abstract class Fare {
 	}
 	
 	public abstract MatchFare createMatch();
-
 }

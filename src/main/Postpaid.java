@@ -1,6 +1,6 @@
 package main;
 
-import java.util.List;
+import java.util.*;
 
 public class Postpaid extends Plan{
 	
@@ -18,16 +18,22 @@ public class Postpaid extends Plan{
 	}
 	
 	public double getFare(CDR cdr) {
+		
+		List<Double> findedFares = new ArrayList<>();
 		double findedFare = -1;
+		
 		for( Fare fare: this.fareList) {
 			MatchFare matcher = fare.createMatch();
 			findedFare = matcher.getMatchingFare(cdr, fare); 
 			if(findedFare != -1) {
-				return findedFare;
+				findedFares.add(findedFare);
 			}
 		}
-		findedFare = normalFare.getFare();
+		if(!findedFares.isEmpty()) {
+			return getLowerFare(findedFares);
+		}
 		
+		findedFare = normalFare.getFare();
 		return findedFare;
 	}
 }

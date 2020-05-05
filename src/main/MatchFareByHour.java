@@ -1,7 +1,5 @@
 package main;
 
-import java.util.List;
-
 public class MatchFareByHour implements MatchFare {
 	
 	public boolean isValidHour(FareByHour fare, int hour) {

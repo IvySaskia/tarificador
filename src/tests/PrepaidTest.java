@@ -14,7 +14,7 @@ class PrepaidTest {
 
 	Prepaid plan;
 	CDR llamada = new CDR(7777777, 66666666, 2, 1730, new Date());
-	CDR llamada2 = new CDR(7777777, 66666666, 2, 2130, new Date());
+	CDR llamada2 = new CDR(8888888, 66666666, 21, 1630, new Date());
 	Fare fare = new NormalFare(2, "Normal");
 	Fare fare2 = new FareByHour(3, 1330, 1550, "Tardes");
 	List<Fare> fares = asList(new FareByHour(1,1000,1400), new FareByHour(2, 1500, 1800));
@@ -37,10 +37,19 @@ class PrepaidTest {
 		assertEquals(plan.getNormalFare().getFare(), 2);
 	}
 	
-	
 	@Test
 	void testingGetFare() {
 		Prepaid plan = new Prepaid(fare, fares);
 		assertEquals(2, plan.getFare(llamada));
+	}
+	
+	@Test
+	void testingCall() {
+		Prepaid plan = new Prepaid(fare, fares);
+		Client cliente = new Client(plan,8888888);
+		ClientRegistry clientList = new ClientRegistry();
+		clientList.addClient(cliente);
+		llamada2.calculateCostCall(clientList);
+		assertEquals(42, llamada2.getCost());
 	}
 }

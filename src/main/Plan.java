@@ -36,6 +36,22 @@ public abstract class Plan{
 		}
 	}
 	
-	public abstract double getFare(CDR cdr);
+	public abstract double getFare(CDR cdr);	
+	
+	public double getLowerFare(List<Double> fareList) {
+		double lowerFare = -1;
+		if(fareList.size() > 1) {
+			for( int i = 0 ; i < fareList.size(); i++) {
+				if(i + 1 <= fareList.size() - 1) {
+					lowerFare = fareList.get(i) < fareList.get(i+1) ? fareList.get(i) : fareList.get(i+1);
+				}
+			}
+		}
+		else {
+			lowerFare = fareList.get(0);
+		}
+		return lowerFare;
+	}
+
 		
 }

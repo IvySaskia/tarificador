@@ -1,5 +1,6 @@
 package main;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Prepaid extends Plan {
@@ -18,16 +19,23 @@ public class Prepaid extends Plan {
 	}
 	
 	public double getFare(CDR cdr) {
+		List<Double> findedFares = new ArrayList<>();
 		double findedFare = -1;
+		
 		for( Fare fare: this.fareList) {
 			MatchFare matcher = fare.createMatch();
 			findedFare = matcher.getMatchingFare(cdr, fare); 
 			if(findedFare != -1) {
-				return findedFare;
+				findedFares.add(findedFare);
 			}
 		}
-		findedFare = normalFare.getFare();
+		if(!findedFares.isEmpty()) {
+			findedFare = getLowerFare(findedFares);
+			if(findedFare != -1)
+				return findedFare;
+		}
 		
+		findedFare = normalFare.getFare();
 		return findedFare;
 	}
 }

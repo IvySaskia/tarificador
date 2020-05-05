@@ -31,24 +31,27 @@ public class CDRRegistryTest {
 	private Client cliente2 = new Client(postpago, 6666666);
 	private Client cliente3 = new Client(wow, 8888888);
 	
-//	@Test
-//	public void testAddingCalls() throws IOException {
-//		clientsRegister.addClient(cliente);
-//		clientsRegister.addClient(cliente2);
-//		clientsRegister.addClient(cliente3);
-//		reg.addCDR(llamada, clientsRegister);
-//		reg.addCDR(llamada2, clientsRegister);
-//		reg.addCDR(llamada3, clientsRegister);
-//		reg.addCDR(llamada4, clientsRegister);
-//		reg.addCDR(llamada5, clientsRegister);
-//		reg.saveRegistry();
-//		assertThat(reg.getRegistry(), is(asList(llamada, llamada2, llamada3, llamada4, llamada5)));
-//	}
+	@Test
+	public void testAddingCalls() throws IOException {
+		clientsRegister.addClient(cliente);
+		clientsRegister.addClient(cliente2);
+		clientsRegister.addClient(cliente3);
+		reg.addCDR(llamada, clientsRegister);
+		reg.addCDR(llamada2, clientsRegister);
+		reg.addCDR(llamada3, clientsRegister);
+		reg.addCDR(llamada4, clientsRegister);
+		reg.addCDR(llamada5, clientsRegister);
+		reg.saveRegistry();
+		assertThat(reg.getRegistry(), is(asList(llamada, llamada2, llamada3, llamada4, llamada5)));
+	}
 	
 	@Test
 	void initializeTest() {
 		CDRRegistry CDRregister = new CDRRegistry();
-		CDRregister.setRegistry(asList(llamada, llamada2, llamada3, llamada4));
+		clientsRegister.addClient(cliente);
+		clientsRegister.addClient(cliente2);
+		clientsRegister.addClient(cliente3);
+		CDRregister.setRegistry(asList(llamada, llamada2, llamada3, llamada4), clientsRegister);
 		assertThat(CDRregister.getRegistry(), is(asList(llamada, llamada2, llamada3, llamada4)));
 	}
 	

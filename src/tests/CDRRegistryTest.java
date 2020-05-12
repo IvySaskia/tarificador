@@ -16,7 +16,8 @@ import main.*;
 
 public class CDRRegistryTest {
 
-	private CDRRegistry reg = new CDRRegistry();
+	Repository repository = new FileRepository();
+	private CDRRegistry reg = new CDRRegistry(repository);
 	private Plan prepago = new Prepaid(new NormalFare(1.45), asList(new FareByHour(0.85, 2130, 2359)));
 	private Plan postpago = new Postpaid(1);
 	private Wow wow = new Wow(0.99);
@@ -81,8 +82,8 @@ public class CDRRegistryTest {
 		Client cliente = new Client(prepago, 7777777);
 		Client cliente2 = new Client(postpago, 6666666);
 		Client cliente3 = new Client(wow, 8888888);
-		
-		CDRRegistry CDRregister = new CDRRegistry();
+		Repository repository = new FileRepository();
+		CDRRegistry CDRregister = new CDRRegistry(repository);
 		
 		clientsRegister.addClient(cliente);
 		clientsRegister.addClient(cliente2);

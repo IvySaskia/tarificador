@@ -24,7 +24,7 @@ public class Postpaid extends Plan{
 		
 		for( Fare fare: this.fareList) {
 			MatchFare matcher = fare.createMatch();
-			findedFare = matcher.getMatchingFare(cdr, fare); 
+			findedFare = matcher.getMatchingFare(cdr, fare);
 			if(findedFare != -1) {
 				findedFares.add(findedFare);
 			}

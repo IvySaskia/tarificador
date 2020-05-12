@@ -42,8 +42,9 @@ public class Main {
 	}
 	
 	public static void main(String[] args) throws IOException {
+		Repository repository = new FileRepository();
 		ClientRegistry clientsRegister = new ClientRegistry();
-		CDRRegistry CDRregister = new CDRRegistry();
+		CDRRegistry CDRregister = new CDRRegistry(repository);
 		clientsRegister.setClientes(getSampleClients());
 		List<CDR> list = getSampleCalls();
 		
